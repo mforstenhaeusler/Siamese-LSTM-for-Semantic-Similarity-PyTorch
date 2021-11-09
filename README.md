@@ -1,4 +1,4 @@
-# Semantic-Similarity-Using-a-LSTM-NN
+## Semantic-Similarity-Using-a-LSTM-NN
 
 This repositpory entails an implementation of a Deep Learning Pipeline that can be used to evaulate the semantic similarity of two sentenences using PyTorch. The model of choice is a Siamese LSTM Neural Network. 
 
