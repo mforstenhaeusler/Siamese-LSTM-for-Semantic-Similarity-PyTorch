@@ -1,0 +1,24 @@
+{
+    "os": "Darwin-20.3.0-x86_64-i386-64bit",
+    "python": "3.7.4",
+    "heartbeatAt": "2021-11-06T10:55:35.405124",
+    "startedAt": "2021-11-06T10:55:28.765145",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "-f",
+        "/Users/Maxi/Library/Jupyter/runtime/kernel-b900e447-adc5-4279-ad6b-4e3ec0ca55b6.json"
+    ],
+    "state": "running",
+    "program": "Documents/TUM/Studium/Kurse/WiSe 21/Master-Praktikum /homework_final/Version 2.ipynb",
+    "root": "/Users/Maxi",
+    "git": {
+        "remote": null,
+        "commit": "9c9078e9ec3b07fbb2b84a0e3485c61bff9b10ab"
+    },
+    "email": null,
+    "host": "Maximilians-MacBook-Pro-5072.local",
+    "username": "Maxi",
+    "executable": "/Users/Maxi/opt/anaconda3/bin/python"
+}
