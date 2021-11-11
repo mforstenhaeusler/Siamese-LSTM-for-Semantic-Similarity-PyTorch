@@ -10,6 +10,7 @@ def create_pretrained_weights(google_embbeding_path, embedding_dim, language):
     """ Load pretrained weight and create pretrained weights for the embedding layer of the moel from pre-trained embbedings """
     n_words_vocab = len(language.word2index)
     # adopted from https://mccormickml.com/2016/04/12/googles-pretrained-word2vec-model-in-python/
+    # link to embeddings https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?resourcekey=0-wjGZdNAUop6WykTtMip30g
     # Load pre-trained embeddings from word2vec
     word2vec_model = gensim.models.KeyedVectors.load_word2vec_format(google_embbeding_path, binary=True)
     

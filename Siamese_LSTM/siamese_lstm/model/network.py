@@ -22,6 +22,19 @@ class EmbeddingLSTMNet(nn.Module):
         LSTM Network and embeddings from pretrained weights
         
             - 1 lstm is enough since weights are shared
+        embedding_dim : int
+                        embedding dimnesion
+        hidden_cells : int 
+                       number of hidden cells in LSTM
+        num_layers :  int
+                      number of layers
+        embedding_requires_grad : bool
+        pretrained_weights : torch.tensor
+                             pre-trained weights tensor 
+        dropout : float
+                  indicates the dropout percentage
+        simple : bool
+                 selects the simplest model, only LSTM layer
         """
         self.dropout = nn.Dropout(dropout)
         self.lstm = nn.LSTM(
@@ -49,6 +62,11 @@ class EmbeddingLSTMNet(nn.Module):
                           [j1, j2, j4, j5] ]
         lenghts : list
                   list all the lengths of each question  
+        
+        Return:
+        -------
+        result : torch.tensor
+                 output tesnor of of forward pass 
         """
         # Reverse the sequence lengths indices in decreasing order (pytorch requirement for pad and pack)
         sorted_indices = np.flipud(np.argsort(lengths))
@@ -100,7 +118,21 @@ class SiameseNetwork(nn.Module):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
     def forward(self, q1, q2, q1_lengths, q2_lengths):
-        """ """
+        """ Forward pass 
+        Params:
+        -------
+        q1 : pad sequence tensor 
+             question 1  
+        q2 : pad sequence tensor 
+             question 2  
+        q1_lengths : torch.tensor
+                      original lengths of each question 1
+        q2_lengths : torch.tensor
+                      original lengths of each question 1
+        Returns:
+        --------
+        similarity_score : torch.tensor
+        """
         output_q1 = self.embedding(q1, q1_lengths)
         output_q2 = self.embedding(q2, q2_lengths)
         similarity_score = torch.zeros(output_q1.size()[0]).to(self.device)

@@ -35,11 +35,10 @@ class ModelTrainer:
                            Training DataLoader
         val_dataloader : torch.utils.data.DataLoader
                          Validation DataLoader 
-        test_dataloader : torch.utils.data.DataLoader
-                          Testing DataLoader
         train_indices : list 
-        val_indices :  list
-        test_indices : list 
+                        list of the train indices
+        val_indices : list
+                      list of the val indices 
         lr_scheduler_enabler : bool
                                if True enables Learning rate scheduler, if False disables it
         """
@@ -217,7 +216,7 @@ class ModelTrainer:
         print(f'FP: {cm[1,0]}')
         print(f'FN: {cm[0,1]}')
         print(f'TN: {cm[1,1]}')
-        print(f'\nPercision Score: {precision_score(np.hstack(predictions), np.hstack(labels_list))}')
+        print(f'\nPrecision Score: {precision_score(np.hstack(predictions), np.hstack(labels_list))}')
         print(f'Recall Score: {recall_score(np.hstack(predictions), np.hstack(labels_list))}')
         print(f'F1 Score: {f1_score(np.hstack(predictions), np.hstack(labels_list))}')
 
@@ -289,7 +288,7 @@ class ModelTrainer:
         # capture hyperparameters
         config = self.hparams
         # initialize wandb
-        wandb.init(project="IBM-Praktikum Homework 2", entity="maxifor", config=config)
+        wandb.init(project="Siamese_LSTM", entity="maxifor", config=config)
 
     def log_metrics_to_wandb(self, train_loss, train_acc, val_loss, val_acc):
         """ log metric to weights and biases """

@@ -1,7 +1,5 @@
 import re
 import nltk 
-#nltk.download('wordnet')
-#nltk.download("stopwords")
 from nltk.stem import WordNetLemmatizer, SnowballStemmer
 from nltk.corpus import stopwords
 
